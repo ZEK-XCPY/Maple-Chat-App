@@ -3,7 +3,7 @@ import assets from "../assets/assets";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
-import { ChatContext } from "../../context/Chatcontext";
+import { ChatContext } from "../../context/ChatContext";
 import maplechat from "../assets/maplechat.png"
 
 const Sidebar = () => {
