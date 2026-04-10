@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import { ChatContext } from "../../context/Chatcontext";
+import maplechat from "../assets/maplechat.png"
+
 const Sidebar = () => {
   const {
     getUsers,
@@ -30,18 +32,18 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`bg-[#8185B2]/10 h-full p-5 rounded-r-xl overflow-y-scroll text-white ${selectedUser ? "max-md:hidden" : ""}`}
+      className={`bg-yellow-400/10 h-full p-5 rounded-r-xl overflow-y-scroll text-white ${selectedUser ? "max-md:hidden" : ""}`}
     >
       <div className="pb-5">
         <div className="flex justify-between items-center">
-          <img src={assets.logo} alt="logo" className="max-w-40" />
+          <img src={maplechat} alt="logo" className="max-w-40" />
           <div className="relative py-2 group">
             <img
               src={assets.menu_icon}
               alt="menu"
               className="max-h-5 cursor-pointer"
             />
-            <div className="absolute top-full right-0 z-20 w-32 p-5 rounded-md bg-[#282142] border border-gray-600 text-gray-100 hidden group-hover:block">
+            <div className="absolute top-full right-0 z-20 w-32 p-5 rounded-md bg-yellow-400/80 border border-yellow-300 text-gray-100 hidden group-hover:block">
               <p
                 onClick={() => navigate("/profile")}
                 className="cursor-pointer text-sm"
@@ -56,7 +58,7 @@ const Sidebar = () => {
           </div>
         </div>
 
-        <div className="bg-[#282142] rounded-full flex items-center gap-2 py-3 px-4 mt-5">
+        <div className="bg-yellow-400/10 rounded-full flex items-center gap-2 py-3 px-4 mt-5">
           <img src={assets.search_icon} alt="search" className="w-3" />
           <input
             onChange={(e) => setInput(e.target.value)}
@@ -73,7 +75,7 @@ const Sidebar = () => {
               setSelectedUser(user); setUnseenMessages(prev =>({...prev,[user._id]:0}))
             }}
             key={index}
-            className={` relative flex items-center gap-2 p-2 pl-4 rounded cursor-pointer max-sm:text-sm ${selectedUser?._id == user._id && "bg-[#282142]/50"} `}
+            className={` relative flex items-center gap-2 p-2 pl-4 rounded cursor-pointer max-sm:text-sm ${selectedUser?._id == user._id && "bg-yellow-400/20"} `}
           >
             <img
               src={user?.profilePic || assets.avatar_icon}
@@ -89,7 +91,7 @@ const Sidebar = () => {
               )}
             </div>
             {unseenMessages[user._id] > 0 && (
-              <p className="absolute top-4 right-4 text-xs h-5 w-5 flex justify-center items-center rounded-full bg-violet-500/50">
+              <p className="absolute top-4 right-4 text-xs h-5 w-5 flex justify-center items-center rounded-full bg-yellow-500/50">
                 {unseenMessages[user._id]}
               </p>
             )}

@@ -4,6 +4,7 @@ import { formatMessageTime } from '../lib/utils'
 import { ChatContext } from '../../context/Chatcontext'
 import { AuthContext } from '../../context/AuthContext'
 import toast from "react-hot-toast";
+import maplechat from "../assets/maplechat.png"
 
 
 const ChatContainer = () => {
@@ -56,7 +57,7 @@ const ChatContainer = () => {
   return selectedUser ? (
     <div className='h-full overflow-scroll relative backdrop-blur-lg'>
       {/* header */}
-      <div className='flex items-center gap-3 py-3 px-4 border-b border-stone-500'>
+      <div className='flex items-center gap-3 py-3 px-4 border-b border-yellow-500'>
         <img src={selectedUser.profilePic || assets.avatar_icon} alt="" className='w-8 rounded-full'/>
         <p className='flex-1 text-lg text-white flex items-center gap-2'>
           {selectedUser.fullName}
@@ -72,7 +73,7 @@ const ChatContainer = () => {
               {msg.image ? (
                 <img className='max-w-57.5 border border-gray-700 rounded-lg overflow-hidden' src={msg.image} alt="" />
               ): (
-                <p className={`p-2 max-w-50 md:max-w-xs text-sm font-light rounded-lg wrap-break-word bg-violet-500/30 text-white ${msg.senderId === authUser._id ? 'rounded-br-none' : 'rounded-bl-none'}`}>{msg.text}</p>
+                <p className={`p-2 max-w-50 md:max-w-xs text-sm font-light rounded-lg wrap-break-word bg-yellow-500/30 text-white ${msg.senderId === authUser._id ? 'rounded-br-none' : 'rounded-bl-none'}`}>{msg.text}</p>
               )}
               <div className='text-center text-xs'>
                   <img src={msg.senderId === authUser._id ? authUser._id  ?.profilePic || assets.avatar_icon : selectedUser ?.profilePic || assets.avatar_icon} alt="" className='w-7 rounded-full' />
@@ -90,12 +91,17 @@ const ChatContainer = () => {
                 <input onChange={handleSendImage} type="file" id='image' accept='image/png, image/jpeg' hidden/>
                 <label htmlFor="image"><img src={assets.gallery_icon} alt="" className='w-5 mr-2 cursor-pointer' /></label>
               </div>
-              <img onClick={handleSendMessage} src={assets.send_button} alt=""  className='w-7 cursor-pointer'/>
+<button
+  onClick={handleSendMessage}
+  className="w-10 h-10 flex items-center justify-center rounded-full bg--50 transition"
+>
+  <img src={assets.send_button} alt="" className="w-5 invert " />
+</button>
       </div>
     </div>
       
   ) : (<div className='flex flex-col items-center justify-center gap-2 text-gray-500 bg-white/10 max-md:hidden'>
-    <img src={assets.logo_icon} className='max-w-16' alt="" />
+    <img src={maplechat} className='max-w-50' alt="" />
     <p className='text-lg font-medium text-white'>Chat anytime, Anywhere </p>
   </div>)
 }

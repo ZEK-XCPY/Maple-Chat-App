@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import assets from "../assets/assets";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import maplechat from "../assets/maplechat.png"
+
+
 const ProfilePage = () => {
   const { authUser, updateProfile } = useContext(AuthContext);
 
@@ -76,14 +79,14 @@ const ProfilePage = () => {
 
           <button
             type="submit"
-            className="bg-linear-to-r from-purple-400 to-violet-600 text-white p-2 rounded-full text-lg cursor-pointer"
+            className="bg-linear-to-r from-yellow-400 to-yellow-600 text-white p-2 rounded-full text-lg cursor-pointer"
           >
             Save
           </button>
         </form>
         <img
-          src={authUser?.profilePic || assets.logo_icon}
-          className={`max-w-44 aspect-square rounded-full mx-10 max-sm:mt-10 ${selectedImg && "rounded-full"}`}
+          src={authUser?.profilePic || maplechat}
+          className={`max-w-50 h-40 mx-10 max-sm:mt-10 ${selectedImg && "rounded-full"}`}
           alt=""
         />
       </div>
